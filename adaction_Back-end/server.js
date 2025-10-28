@@ -135,12 +135,8 @@ app.get("/categories", async (req, res) => {
 // 🚀 nouvelle route pour la page add_collect: ajouter une nouvelle collecte
 app.post("/add_collection", async (req, res) => {
   console.log("[POST/collection] body reçu:", req.body);
-  const {
-    volunteers_id,
-    collections_date,
-    collections_location,
-    quantities,
-  } = req.body;
+  const { volunteers_id, collections_date, collections_location, quantities } =
+    req.body;
   try {
     // insérer la collecte dans collections
     const insertCollection = await pool.query(
@@ -196,7 +192,7 @@ app.get("/volunteers/:name", async (req, res) => {
         .status(404)
         .json({ ok: false, message: "Bénévole non trouvé." });
     } else {
-      res.json({id:result.rows[0].id});
+      res.json({ id: result.rows[0].id });
     }
   } catch (error) {
     console.error(error);
@@ -340,11 +336,10 @@ GROUP BY cat.name, cat.icon
     res.json({
       total: totalResult.rows[0]?.total ? Number(totalResult.rows[0].total) : 0,
       categories: categoriesResult.rows.map((r) => ({
-    name: r.name,
-    total: r.total ? Number(r.total) : 0,
-    icon: r.icon,
-})),
-
+        name: r.name,
+        total: r.total ? Number(r.total) : 0,
+        icon: r.icon,
+      })),
     });
   } catch (error) {
     console.error("Erreur SQL overview:", error);
