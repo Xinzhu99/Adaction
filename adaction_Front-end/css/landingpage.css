@@ -73,7 +73,7 @@ main {
 
   #form-box {
     position: absolute;
-    top: 72%;
+    top: 65%;
 
     form {
       display: flex;
@@ -117,10 +117,9 @@ main {
 }
 
 footer {
-  height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 10rem;
+  margin-top: auto;
 }

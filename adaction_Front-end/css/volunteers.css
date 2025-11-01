@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +6,7 @@
 }
 
 body{
-  font-family: roboto;
+  font-family: roboto, sans-serif;
   font-size: 1rem;
   height: 100%;
   width: 100%;
@@ -90,6 +91,7 @@ header {
       box-shadow: 0 0 5px rgba(151, 177, 129, 0.4);
       outline: none;
     }
+ 
   }
 
   
@@ -98,15 +100,13 @@ header {
 /*&__________________Volunteers-List___________________*/
 
 #volunteers {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 8px 8px 40px;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  margin: 3rem;
 
   .volunteer-profil {
-    width: 80vw;
     background: #fff;
     border-radius: 12px;
     border: 1px solid #e6e6e6;
@@ -130,6 +130,9 @@ header {
         padding: 0;
         gap: 10px;
       }
+      .delete-btn {
+        margin-top: 1rem;
+      }
     }
   }
 }
@@ -139,14 +142,6 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-
-  #add-btn{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 15vh;
-}
 
 }
 
@@ -196,7 +191,7 @@ header {
       margin: 0 10px;
       padding: 8px 15px;
       border: none;
-      border-radius: 5px;
+      border-radius: 2rem;
       cursor: pointer;
     }
 
@@ -206,24 +201,9 @@ header {
   }
 }
 
-#add-volunteer_modal{
+#add-volunteer{
  display: none;
 }
-
-#add-volunteer_modal {
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 1rem;
- 
-  overflow: hidden;
-
-
-  width: 50vw;
-  padding: 1rem;
-  background-color: #97b181;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
-  border: 1px solid black;
 
 
   span {
@@ -236,9 +216,11 @@ header {
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+    align-items: end;
+    margin: 2rem;
   }
 
-}
+/*}*/
 
 /*&__________________Bottom_Nav-Bar___________________*/
 

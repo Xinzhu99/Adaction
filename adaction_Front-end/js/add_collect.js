@@ -82,4 +82,8 @@ const addBtns = () => {
     });
   });
 };
+//gestion du modal
+document.querySelector("#add").addEventListener(("click", ())=> {
+
+})
 

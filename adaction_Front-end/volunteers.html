@@ -17,6 +17,7 @@
     </div>
   </header>
     <section>
+        <div>
         <form class="search-form">
             <div class="form-group">
                 <label for="location"> Localisation : </label>
@@ -30,6 +31,7 @@
             <button id="search-btn" type="submit">Rechercher</button>
             <button id="reset-btn">Reset</button>
         </form>
+        </div>
     </section>
 
     <section>
@@ -40,7 +42,7 @@
         <div id="deleteModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <p id="message">Êtes-vous sûr de vouloir supprimer ce bénévole ?</p>
+                <p id="message">Êtes-vous sûr.e de vouloir supprimer ce bénévole ?</p>
                 <div class="modal-buttons">
                     <button id="confirmDelete">Supprimer</button>
                     <button id="cancelDelete">Annuler</button>
@@ -52,18 +54,18 @@
                 <button id="add-volunteer">Créer un compte bénévole </button>
             </div>
             <!--& partie Ursula -->
-            <div id="add-volunteer_modal">
+            <div id="add-volunteer_modal" >
                 <div id="closeForm">
                     <span>&times;</span>
                 </div>
                 <form id="volunteer-form">
                     <div class="formChild">
-                        <Label for="name">Nom</Label>
-                        <input type="text" id="volunteerName" placeholder="Nom" required>
+                        <Label for="name">Nom :</Label>
+                        <input type="text" id="volunteerName" placeholder="" required>
                     </div>
                     <div class="formChild">
-                        <label for="city">Ville</label>
-                        <input type="text" id="volunteerCity" placeholder="Ville" required>
+                        <label for="city">Ville :</label>
+                        <input type="text" id="volunteerCity" placeholder="" required>
                     </div>
                     <div class="formChild">
                         <button id="save-btn" type="submit">Enregistrer</button>

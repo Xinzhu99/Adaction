@@ -81,7 +81,6 @@ async function displayVolunteers(volunteers = null) {
 }
 
 //& Inline Editing (champs input qui apparaît lorsque le bouton modifier(edit-btn) est cliqué)
-
 function addInlineEditing() {
   document.querySelectorAll(".edit-btn").forEach(btn => {
 
@@ -130,10 +129,6 @@ function addInlineEditing() {
 
       //* Sauvegarde au clic sur le bouton
       e.target.addEventListener("click", saveChanges, { once: true })
-
-      //* Sauvegarde à la touche Entrée
-      // nameInput.addEventListener("keydown", (ev) => { if (ev.key === "Enter") saveChanges(); })
-      // cityInput.addEventListener("keydown", (ev) => { if (ev.key === "Enter") saveChanges(); })
     });
   });
 }
