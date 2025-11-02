@@ -4,52 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add_collect</title>
-      <link rel="icon" type="image/x-icon" href="../images/green favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../images/green favicon.svg" />
     <script type="module" defer src="../js/add_collect.js"></script>
     <link rel="stylesheet" href="../css/add_collect.css" />
   </head>
   <body>
-      <header>
-    <div class="logo">
-      <img src="../images/logo green border-01.svg" alt="">
-    </div>
-  </header>
-    
-    <div class="inputContainer">
-      <div class="inputPair">
-        <label for="city">Localisation :</label>
-        <input id="city" name="city" placeholder="Votre ville" />
+    <header>
+      <div class="logo">
+        <img src="../images/logo green border-01.svg" alt="" />
       </div>
-      <div class="inputPair">
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" placeholder="" />
-      </div>
-    </div>
-
-    <div class="grid"></div>
-    <div id="add-collect" class="modal">
-            <div class="modal-content">
-                <p id="message">Votre collecté a été enregistrée avec succès !</p>
-                <span class="close">&times;</span>
-            </div>
+    </header>
+    <form>
+      <div class="inputContainer">
+        <div class="inputPair">
+          <label for="city">Localisation :</label>
+          <input id="city" name="city" placeholder="Votre ville" required >
         </div>
-    <button id="add">Enregistrer la collecte</button>
+        <div class="inputPair">
+          <label for="date">Date :</label>
+          <input type="date" id="date" name="date" placeholder="" required >
+        </div>
+      </div>
+
+      <div class="grid"></div>
+      <div id="add-collect" class="modal">
+        <div class="modal-content">
+          <p id="message">Votre collecte a été enregistrée avec succès !</p>
+          <span class="close">&times;</span>
+        </div>
+      </div>
+      <button id="add">Enregistrer la collecte</button>
+    </form>
+
     <div class="navBar">
       <a href="../pages/landingpage.html">
         <i data-lucide="home"></i>
-      <span>Acceuil</span>
-    </a>
-      <a href="../pages/my_collection.html" >
+        <span>Acceuil</span>
+      </a>
+      <a href="../pages/my_collection.html">
         <i data-lucide="chart-pie"></i>
-      <span>Collectes</span>
-    </a>
-      <a class="current" href="#"><i data-lucide="circle-plus"></i>
-      <span>Ajouter</span>
-    </a>
+        <span>Collectes</span>
+      </a>
+      <a class="current" href="#"
+        ><i data-lucide="circle-plus"></i>
+        <span>Ajouter</span>
+      </a>
     </div>
     <script src="https://unpkg.com/lucide@latest"></script>
-        <script>
-            lucide.createIcons();
-        </script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>

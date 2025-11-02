@@ -172,7 +172,7 @@ app.post("/add_collection", async (req, res) => {
     //*renvoyer un message alerte
     return res.status(201).json({
       ok: true,
-      message: `collecte ajoutée avec succès`,
+      // message: `collecte ajoutée avec succès`,
     });
   } catch (error) {
     console.error("erreur lors de la création de la collecte", error);
@@ -329,7 +329,6 @@ JOIN categories cat ON q.category_id = cat.id
 JOIN collections c ON q.collection_id = c.id
 ${where}
 GROUP BY cat.name, cat.icon
-
     `;
     const categoriesResult = await pool.query(categoriesQuery, params);
     console.log(categoriesResult.rows);

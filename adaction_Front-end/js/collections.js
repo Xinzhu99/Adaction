@@ -80,7 +80,7 @@ function renderCategories(categories) {
 function renderTotal(total) {
     totalValue.textContent = total !== undefined ? total.toLocaleString() : "0";
 }
-
+//actions déclenchées par le bouton rechercher 
 searchButton.addEventListener('click', async () => {
     const location = cityInput.value.trim();
     const date = dateInput.value;

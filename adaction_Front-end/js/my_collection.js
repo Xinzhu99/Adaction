@@ -5,15 +5,6 @@ let searchParams = new URLSearchParams(paremString);
 let userName = searchParams.get("user");
 console.log(userName)
 
-//si le username vient de l'url, on le sauvegarde
-// if (userName) {
-//   localStorage.setItem("user", userName);
-// //sinon on le récupère du localstorage : le cas de retour à ce page depuis page add_collect
-// } else {
-//   userName = localStorage.getItem("user");
-// }
-
-
 //fonction pour récupérer id du bénévole à partir du name input
 async function getUserId(name) {
   try {

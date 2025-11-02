@@ -201,8 +201,9 @@ header {
   }
 }
 
-#add-volunteer{
+#add-volunteer, #add-volunteer_modal{
  display: none;
+ margin: 1rem;
 }
 
 
@@ -220,7 +221,9 @@ header {
     margin: 2rem;
   }
 
-/*}*/
+#add-btn {
+  margin-bottom: 2rem;
+}
 
 /*&__________________Bottom_Nav-Bar___________________*/
 

@@ -29,8 +29,12 @@ loadCategories();
 //fonction qui permet de collecter tous les input nécessaire pour un post createCollection
 const userId = localStorage.getItem("userId");
 console.log(userId);
+const modalBg = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-content");
+
 const getUserInput = () => {
-  document.querySelector("#add").addEventListener("click", () => {
+  document.querySelector("#add").addEventListener("click", (e) => {
+    e.preventDefault()
     const location = document.querySelector("#city").value;
     const date = document.querySelector("#date").value;
     const quantities = document.querySelectorAll(".qty");
@@ -46,23 +50,25 @@ const getUserInput = () => {
 };
 
 const createCollection = async (date, location, arr) => {
-  try {
-    const response = await fetch(`${API_URL}/add_collection`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" }, //! je précise au serveur que je vais envoyer les data en fromat json
-      body: JSON.stringify({
-        volunteers_id: userId,
-        collections_date: date,
-        collections_location: location,
-        quantities: arr,
-      }),
-    });
-    const data = await response.json();
-    alert(`${data.message}`);
-  } catch (error) {
-    console.log("Having difficulty connecting to api.", error);
+
+    try {
+      const response = await fetch(`${API_URL}/add_collection`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }, //! je précise au serveur que je vais envoyer les data en fromat json
+        body: JSON.stringify({
+          volunteers_id: userId,
+          collections_date: date,
+          collections_location: location,
+          quantities: arr,
+        }),
+      });
+      const data = await response.json();
+      modalBg.style.display = "block";
+      modalContent.style.display = "flex";
+    } catch (error) {
+      console.log("Having difficulty connecting to api.", error);
+    }
   }
-};
 // Gestion des boutons + et -
 const addBtns = () => {
   document.querySelectorAll(".btn").forEach((btn) => {
@@ -74,16 +80,17 @@ const addBtns = () => {
       if (btn.classList.contains("add")) {
         value++;
       } else if (btn.classList.contains("sub")) {
-        if (value>0){
-        value -- ;
+        if (value > 0) {
+          value--;
         }
       }
       input.value = value;
     });
   });
 };
-//gestion du modal
-document.querySelector("#add").addEventListener(("click", ())=> {
 
-})
-
+//fermeture du modal
+document.querySelector(".close").addEventListener("click", () => {
+  modalBg.style.display = "none";
+  modalContent.style.display = "none";
+});
