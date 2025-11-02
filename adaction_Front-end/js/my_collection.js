@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "hhttps://adaction-i968.onrender.com";
 
 let paremString = window.location.search;
 let searchParams = new URLSearchParams(paremString);

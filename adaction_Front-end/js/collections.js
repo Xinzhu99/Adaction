@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://adaction-i968.onrender.com';
 
 const cityInput = document.getElementById('cities');
 const dateInput = document.getElementById('collections-date');
