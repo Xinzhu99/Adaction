@@ -137,7 +137,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(/adaction_Front-end/images/back-hero.jpeg);
+  background-image: url(../images/back-hero.jpeg);
 
   .logo {
     display: flex;
