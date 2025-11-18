@@ -13,6 +13,16 @@ resetButton.addEventListener("click", (e) => {
   displayVolunteers(); 
 });
 }
+//functions gestion loading 
+const loadingDiv = document.getElementById("loading");
+
+function showLoading() {
+  loadingDiv.classList.remove("hidden");
+}
+function hideLoading() {
+  loadingDiv.classList.add("hidden");
+}
+
 
 //& Récupérer tous les bénévoles
 async function fetchVolunteers() {
@@ -39,6 +49,8 @@ async function fetchCities() {
 //& Afficher la liste des bénévoles
 async function displayVolunteers(volunteers = null) {
 
+  showLoading()
+
   const data = volunteers || await fetchVolunteers();
   const container = document.getElementById("volunteers");
   const addVolunteer = document.getElementById("add-volunteer");
@@ -48,6 +60,7 @@ async function displayVolunteers(volunteers = null) {
   if (data.length === 0) {
     container.innerHTML = "<p>Aucun profil trouvé.</p>";
     addVolunteer.style.display = "none";
+    hideLoading()
     return;
   } else {
     addVolunteer.style.display = "block";
@@ -78,6 +91,7 @@ async function displayVolunteers(volunteers = null) {
 
   addInlineEditing();
   deleteVolunteers();
+  hideLoading()
 }
 
 //& Inline Editing (champs input qui apparaît lorsque le bouton modifier(edit-btn) est cliqué)
@@ -213,6 +227,7 @@ volunteerForm.addEventListener("submit", async (event) => {
     const volunteerName = document.getElementById("volunteerName").value.trim();
     const volunteerCity = document.getElementById("volunteerCity").value.trim();
 
+    showLoading()
     try {
         const response = await fetch(`${API_URL}/volunteers/add`, {
             method: 'POST',
@@ -231,6 +246,8 @@ volunteerForm.addEventListener("submit", async (event) => {
     } catch (error) {
         console.error("Erreur lors de l'ajout du bénévole :", error);
         alert("Échec de l'ajout du bénévole. Veuillez réessayer.");
+    } finally {
+      hideLoading()
     }
 });
 
@@ -270,6 +287,8 @@ document.querySelector(".search-form").addEventListener("submit", async e => {
   if (city) params.append("city", city);
   if (name) params.append("name", name);
 
+  showLoading()
+
   try {
     const res = await fetch(`${API_URL}/volunteers/search?${params}`);
     const data = await res.json();
@@ -278,6 +297,8 @@ document.querySelector(".search-form").addEventListener("submit", async e => {
 
   } catch (err) {
     console.error("Erreur recherche:", err);
+  } finally{
+    hideLoading()
   }
 });
 
