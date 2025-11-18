@@ -6,6 +6,16 @@ const searchButton = document.getElementById('collections-search');
 const categoriesList = document.getElementById('categories-list');
 const totalValue = document.getElementById('total-value');
 
+//gestion de loading : déclaration des functions :
+const loadingDiv = document.getElementById('loading');
+
+function showLoading() {
+    if (loadingDiv) loadingDiv.classList.remove('hidden');
+}
+function hideLoading() {
+    if (loadingDiv) loadingDiv.classList.add('hidden');
+}
+
 // Load cities into the select#cities from backend
 async function loadCities() {
     const select = document.getElementById('cities');
@@ -85,6 +95,7 @@ searchButton.addEventListener('click', async () => {
     const location = cityInput.value.trim();
     const date = dateInput.value;
 
+    showLoading()
     try {
         const { total, categories } = await fetchOverview({ date, location });
         renderTotal(total);
@@ -93,11 +104,14 @@ searchButton.addEventListener('click', async () => {
         console.error('Erreur lors de la recherche:', error);
         totalValue.textContent = "Erreur";
         categoriesList.innerHTML = '<li>Erreur lors de la récupération des données</li>';
+    } finally {
+        hideLoading()
     }
 });
 
 (async () => {
     try {
+        showLoading()
         // fill cities select
         await loadCities();
         const { total, categories } = await fetchOverview();
@@ -105,6 +119,8 @@ searchButton.addEventListener('click', async () => {
         renderCategories(categories);
     } catch (error) {
         console.error('Erreur initialisation:', error);
+    } finally {
+        hideLoading()
     }
 })();
 
